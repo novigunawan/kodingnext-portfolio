@@ -1,0 +1,143 @@
+:root {
+  --bg-500: #17233b;
+  --bg-600: #233150;
+  --fg-500: #fbf7ef;
+  --fg-400: #f1eada;
+  --muted: #9db0c8;
+  --primary-500: #f2a93b;
+  --secondary-500: #2e9e8f;
+  --slate: #3a3f4b;
+  --line: rgba(23, 35, 59, 0.12);
+  --transition: 220ms ease;
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+body {
+  background: var(--bg-500);
+  color: var(--slate);
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+.container {
+  width: min(calc(100% - 40px), var(--container));
+  margin-inline: auto;
+}
+
+.site-header {
+  inset: 0 0 auto;
+  /* background-color: var(--primary-500); */
+  padding: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+.navbar {
+  /* background-color: var(--slate); */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  color: var(--fg-500);
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-menu.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 700;
+  transition: color var(--transition);
+}
+
+.nav-link::after {
+  display: none;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--fg-500);
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* BREAKPOINTS */
+@media (max-width: 820px) {
+  .navbar {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    /* background-color: var(--slate); */
+
+    padding: 10px 20px 20px;
+
+    border-radius: 0 0 10px 10px;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 12px 0;
+  }
+}
