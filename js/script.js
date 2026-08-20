@@ -212,7 +212,7 @@ const projects = [
     description:
       "MAJJA Klinik is a healthcare website designed to connect patients with specialized medical services, including fertility and reproductive care, obstetrics, pediatrics, internal medicine, vaccination, and nutrition. The website provides information about the clinic’s services and doctors, patient testimonials, and convenient appointment booking to help patients access the care they need.",
 
-    image: "/assets/img-majja.png",
+    image: "assets/img-majja.png",
 
     timeline: "1 week",
 
@@ -238,7 +238,7 @@ const projects = [
     description:
       "Asyah is a Sharia-compliant digital participation platform that gives individuals and institutions access to structured, asset-backed investment opportunities through SRIA tokenization, with transparent and verifiable records.",
 
-    image: "/assets/img-asyah.png",
+    image: "assets/img-asyah.png",
 
     timeline: "2 weeks",
 
@@ -263,7 +263,7 @@ const projects = [
     description:
       "Qliper is a decentralized content creation marketplace where creators join themed campaigns, submit videos, memes, edits, or remixes, and compete for rewards funded in SOL. Rewards are distributed based on content performance, such as views and engagement.",
 
-    image: "/assets/img-qliper.webp",
+    image: "assets/img-qliper.webp",
 
     timeline: "1 month",
 
@@ -287,7 +287,7 @@ const projects = [
     description:
       "Propex is a real estate technology platform that helps developers and brokers launch branded property marketplaces, reach global buyers, accept fiat or crypto payments, and manage property ownership transparently through blockchain technology.",
 
-    image: "/assets/img-propex.jpeg",
+    image: "assets/img-propex.jpeg",
 
     timeline: "3 months",
 
