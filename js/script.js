@@ -4,7 +4,17 @@ const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const navLinks = [...document.querySelectorAll(".nav-link")];
 const statNumbers = document.querySelectorAll(".stat-number");
+const typingText = document.querySelector(".typing-text");
+const typingWords = ["world", "developers", "kids"];
 
+let wordIndex = 0;
+let characterIndex = 0;
+let isDeleting = false;
+
+const typingSpeed = 120;
+const deletingSpeed = 70;
+const pauseAfterTyping = 1400;
+const pauseAfterDeleting = 400;
 // Navigation Animation on click and on close
 function closeNavigation() {
   navMenu.classList.remove("open");
@@ -82,3 +92,40 @@ const statsObserver = new IntersectionObserver(
 statNumbers.forEach((number) => {
   statsObserver.observe(number);
 });
+
+// HERO ANIMATION TYPING
+function typeText() {
+  const currentWord = typingWords[wordIndex];
+
+  if (!isDeleting) {
+    characterIndex++;
+
+    typingText.textContent = currentWord.slice(0, characterIndex);
+
+    if (characterIndex === currentWord.length) {
+      isDeleting = true;
+
+      setTimeout(typeText, pauseAfterTyping);
+      return;
+    }
+
+    setTimeout(typeText, typingSpeed);
+  } else {
+    characterIndex--;
+
+    typingText.textContent = currentWord.slice(0, characterIndex);
+
+    if (characterIndex === 0) {
+      isDeleting = false;
+
+      wordIndex = (wordIndex + 1) % typingWords.length;
+
+      setTimeout(typeText, pauseAfterDeleting);
+      return;
+    }
+
+    setTimeout(typeText, deletingSpeed);
+  }
+}
+
+typeText();
